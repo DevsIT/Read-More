@@ -1,0 +1,45 @@
+    <div class="rte">
+
+      <div class="section">
+        {{ page.content | split: "___" | first }}
+
+        <div class="text">
+          {{ page.content | split: "___" | last }}
+        </div>
+        <button class="button jkit-btn-inverse toggle">Read More</button>
+      </div>
+
+
+
+      <script>
+        var readMore = jQuery(document).ready(function () {
+
+          $(".section .toggle").click(function () {
+            var elem = $(this).text();
+            if (elem == "Read More") {
+              //Stuff to do when btn is in the read more state
+              $(this).text("Read Less");
+              $(this).parent().find('.text').slideDown();
+            } else {
+              //Stuff to do when btn is in the read less state
+              $(this).text("Read More");
+              $(this).parent().find('.text').slideUp();
+            }
+          });
+        });
+      </script>
+      <style>
+        div.text {
+          display: none;
+        }
+        .button.jkit-btn-inverse.toggle {
+          display: block;
+          background: transparent;
+          border: 0px solid;
+          outline: 0px solid;
+          border-bottom: 1px solid;
+          padding: 9px 0 0;
+        }
+      </style>
+
+    </div>
